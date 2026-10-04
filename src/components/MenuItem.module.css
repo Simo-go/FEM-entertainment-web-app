@@ -1,0 +1,17 @@
+.item {
+  flex: none;
+}
+
+.icon path {
+  fill: var(--clr-blue-500);
+  transition: var(--base-transition);
+}
+
+.icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.item:hover path {
+  fill: var(--clr-white);
+}

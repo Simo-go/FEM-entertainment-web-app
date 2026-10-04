@@ -75,6 +75,9 @@
   --radius-20: 2rem;
   --radius-24: 2.4rem;
   --radius-full: 100rem;
+
+  /* transitions */
+  --base-transition: all 0.3s;
 }
 
 body {
@@ -96,6 +99,10 @@ body {
 /********************************************/
 /* REUSABLE COMPONENTS */
 /********************************************/
+.btn {
+  background: none;
+  border: none;
+}
 
 /********************************************/
 /* UTILITY / HELPER CLASSES */
@@ -140,3 +147,7 @@ body {
 /********************************************/
 /* SPECIFIC STYLES */
 /********************************************/
+body {
+  background-color: var(--clr-blue-950);
+  color: var(--clr-white);
+}

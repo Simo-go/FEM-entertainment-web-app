@@ -1,0 +1,8 @@
+.btn--profile {
+  flex: none;
+
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 2px solid var(--clr-white);
+}

@@ -1,0 +1,4 @@
+.appContainer {
+  min-height: 100vh;
+  background-color: var(--clr-blue-950);
+}

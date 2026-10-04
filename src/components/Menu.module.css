@@ -1,0 +1,7 @@
+.list {
+  list-style: none;
+
+  display: flex;
+  gap: var(--space-300);
+  align-items: center;
+}
