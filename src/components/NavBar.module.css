@@ -1,4 +1,6 @@
 .nav {
+  background-color: var(--clr-blue-900);
+
   display: flex;
   gap: var(--space-300);
   align-items: center;
