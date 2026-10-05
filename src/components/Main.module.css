@@ -18,4 +18,16 @@
     padding: var(--space-400) 3.6rem var(--space-400) 0;
     margin-bottom: calc(-1 * var(--space-400));
   }
+
+  .mainContainer::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--clr-blue-900);
+    border-radius: var(--radius-full);
+  }
+
+  .mainContainer::-webkit-scrollbar-thumb {
+    background-color: hsl(223, 36%, 25%);
+    border-radius: var(--radius-full);
+    width: 10rem;
+  }
 }

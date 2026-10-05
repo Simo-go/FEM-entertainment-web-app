@@ -4,6 +4,18 @@
   overflow-x: auto;
   margin-right: calc(-1 * var(--space-200));
   padding-bottom: var(--space-100);
+  padding-right: var(--space-100);
+}
+
+.trendingList::-webkit-scrollbar {
+  height: 3px;
+  background-color: var(--clr-blue-900);
+  border-radius: var(--radius-full);
+}
+
+.trendingList::-webkit-scrollbar-thumb {
+  background-color: hsl(223, 36%, 25%);
+  border-radius: var(--radius-full);
 }
 
 /* Tablet */
