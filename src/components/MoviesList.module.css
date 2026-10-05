@@ -13,3 +13,10 @@
     column-gap: 3rem;
   }
 }
+
+/* Desktop (1440px) */
+@media (min-width: 90em) {
+  .moviesList {
+    column-gap: var(--space-500);
+  }
+}

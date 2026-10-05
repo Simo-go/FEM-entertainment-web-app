@@ -76,3 +76,10 @@
     height: 3.2rem;
   }
 }
+
+/* Desktop (1440px) */
+@media (min-width: 90em) {
+  .formContainer {
+    margin-bottom: var(--space-500);
+  }
+}
