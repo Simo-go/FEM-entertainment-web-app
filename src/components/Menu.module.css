@@ -7,6 +7,6 @@
   justify-content: center;
 }
 
-.active path {
+:global(.active) path {
   fill: var(--clr-white);
 }
