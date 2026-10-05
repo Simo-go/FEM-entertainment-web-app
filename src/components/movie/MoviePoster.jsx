@@ -25,7 +25,7 @@ function MoviePoster({ type }) {
   return (
     <div className={`${type === "compact" ? styles.compact : ""} ${styles.posterWrapper}`}>
       <picture>
-        <source media="(min-width: 48em)" srcset={type === "compact" ? movie.thumbnail.trending.large : movie.thumbnail.regular.large} />
+        <source media="(min-width: 48em)" srcSet={type === "compact" ? movie.thumbnail.trending.large : movie.thumbnail.regular.large} />
         <img src={type === "compact" ? movie.thumbnail.trending.small : movie.thumbnail.regular.small} alt="" className={styles.poster} />
       </picture>
       <button className={`btn ${styles.playBtn}`}>
