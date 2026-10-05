@@ -5,15 +5,17 @@
 
 .poster {
   border-radius: var(--radius-8);
+  object-fit: cover;
 
-  width: 24rem;
-  height: 14rem;
   margin-bottom: var(--space-100);
 }
 
 .movie--compact .poster {
   filter: brightness(0.7);
+
   margin-bottom: 0;
+  width: 24rem;
+  height: 14rem;
 }
 
 .detailsContainer {

@@ -1,0 +1,7 @@
+.recommendedList {
+  --min-grid-width: 16rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-grid-width), 1fr));
+  gap: var(--space-200);
+}
