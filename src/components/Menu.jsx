@@ -7,12 +7,14 @@ import styles from "./Menu.module.css";
 
 function Menu() {
   return (
-    <ul className={styles.list}>
-      <MenuItem Icon={HomeIcon} />
-      <MenuItem Icon={MoviesIcon} />
-      <MenuItem Icon={SeriesIcon} />
-      <MenuItem Icon={BookmarkIcon} />
-    </ul>
+    <nav>
+      <ul className={styles.list}>
+        <MenuItem Icon={HomeIcon} />
+        <MenuItem Icon={MoviesIcon} />
+        <MenuItem Icon={SeriesIcon} />
+        <MenuItem Icon={BookmarkIcon} />
+      </ul>
+    </nav>
   );
 }
 
