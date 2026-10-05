@@ -1,5 +1,5 @@
-import MediaBox from "./MediaBox";
-import MoviesList from "./MoviesList";
+import MediaBox from "../mediabox/MediaBox";
+import MoviesList from "../movieslist/MoviesList";
 
 function TvSeries() {
   return (

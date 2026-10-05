@@ -1,5 +1,5 @@
 import styles from "./TrendingMovies.module.css";
-import Movie from "./Movie";
+import Movie from "../movie/Movie";
 
 function TrendingMovies() {
   return (

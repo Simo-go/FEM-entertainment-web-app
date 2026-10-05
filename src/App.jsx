@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import AppLayout from "./pages/AppLayout";
-import Home from "./components/Home";
-import Movies from "./components/Movies";
-import TvSeries from "./components/TvSeries";
-import Bookmarks from "./components/Bookmarks";
-import Search from "./components/Search";
+import Home from "./components/home/Home";
+import Movies from "./components/movies/Movies";
+import TvSeries from "./components/tvseries/TvSeries";
+import Bookmarks from "./components/bookmarks/Bookmarks";
+import Search from "./components/search/Search";
 
 function App() {
   return (

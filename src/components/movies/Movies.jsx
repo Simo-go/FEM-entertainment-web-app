@@ -1,6 +1,6 @@
-import MediaBox from "./MediaBox";
+import MediaBox from "../mediabox/MediaBox";
 import styles from "./Movies.module.css";
-import MoviesList from "./MoviesList";
+import MoviesList from "../movieslist/MoviesList";
 
 function Movies() {
   return (

@@ -4,7 +4,6 @@
   overflow-x: auto;
   margin-right: calc(-1 * var(--space-200));
   padding-bottom: var(--space-100);
-  padding-right: var(--space-100);
 }
 
 .trendingList::-webkit-scrollbar {

@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.css";
-import SearchIcon from "../assets/icon-search.svg?react";
+import SearchIcon from "../../assets/icon-search.svg?react";
 
 function SearchBar() {
   return (

@@ -1,8 +1,8 @@
 import { Outlet } from "react-router";
 
-import Main from "../components/Main";
-import NavBar from "../components/NavBar";
-import SearchBar from "../components/SearchBar";
+import Main from "../components/main/Main";
+import NavBar from "../components/navbar/NavBar";
+import SearchBar from "../components/searchbar/SearchBar";
 
 import styles from "./AppLayout.module.css";
 

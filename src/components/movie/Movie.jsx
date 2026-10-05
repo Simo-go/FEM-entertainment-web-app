@@ -1,7 +1,7 @@
 import styles from "./Movie.module.css";
-import MovieIcon from "../assets/icon-category-movie.svg?react";
-import SeriesIcon from "../assets/icon-category-tv.svg?react";
-import BookmarkIcon from "../assets/icon-bookmark-empty.svg?react";
+import MovieIcon from "../../assets/icon-category-movie.svg?react";
+import SeriesIcon from "../../assets/icon-category-tv.svg?react";
+import BookmarkIcon from "../../assets/icon-bookmark-empty.svg?react";
 
 const movie = {
   title: "Beyond Earth",

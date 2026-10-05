@@ -1,6 +1,6 @@
-import Logo from "./Logo";
-import Menu from "./Menu";
-import ProfileButton from "./ProfileButton";
+import Logo from "../logo/Logo";
+import Menu from "../menu/Menu";
+import ProfileButton from "../profilebutton/ProfileButton";
 
 import styles from "./NavBar.module.css";
 
