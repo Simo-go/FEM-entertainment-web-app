@@ -46,3 +46,36 @@
   width: 0.3rem;
   height: 0.3rem;
 }
+
+.movieDetailsItem {
+  display: flex;
+  gap: var(--space-50);
+}
+
+.bookmarkWrapper {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: var(--radius-full);
+  background-color: var(--clr-blue-950);
+  background-color: hsla(223, 30%, 9%, 0.5);
+
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 900;
+}
+
+.bookmarkIcon path {
+  stroke: var(--clr-white);
+
+  transition: var(--base-transition);
+}
+
+.bookmarkWrapper:hover path,
+.isBookmarked path {
+  fill: var(--clr-white);
+}
