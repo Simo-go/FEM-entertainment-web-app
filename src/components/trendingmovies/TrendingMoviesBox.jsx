@@ -1,6 +1,6 @@
 import MediaBox from "../mediabox/MediaBox";
-import TrendingMovies from "../trendingmovies/TrendingMovies";
-import styles from "./Home.module.css";
+import TrendingMovies from "./TrendingMovies";
+import styles from "./TrendingMoviesBox.module.css";
 
 function TrendingMoviesBox() {
   return (

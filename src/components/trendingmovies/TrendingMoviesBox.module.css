@@ -1,0 +1,24 @@
+.trendingBox {
+  margin-bottom: var(--space-300);
+}
+
+.scrollbarWrapper {
+  padding-right: var(--space-200);
+}
+
+/* Tablet (768px) */
+@media (min-width: 48em) {
+  .trendingBox {
+    margin-bottom: var(--space-500);
+  }
+  .scrollbarWrapper {
+    padding-right: var(--space-300);
+  }
+}
+
+/* Desktop (1440px) */
+@media (min-width: 90em) {
+  .scrollbarWrapper {
+    padding-right: 3.6rem;
+  }
+}

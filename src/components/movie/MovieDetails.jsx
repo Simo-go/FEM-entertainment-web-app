@@ -2,26 +2,6 @@ import styles from "./Movie.module.css";
 import MovieIcon from "../../assets/icon-category-movie.svg?react";
 import SeriesIcon from "../../assets/icon-category-tv.svg?react";
 
-const movie = {
-  title: "Beyond Earth",
-  thumbnail: {
-    trending: {
-      small: "/assets/thumbnails/beyond-earth/trending/small.jpg",
-      large: "/assets/thumbnails/beyond-earth/trending/large.jpg",
-    },
-    regular: {
-      small: "/assets/thumbnails/beyond-earth/regular/small.jpg",
-      medium: "/assets/thumbnails/beyond-earth/regular/medium.jpg",
-      large: "/assets/thumbnails/beyond-earth/regular/large.jpg",
-    },
-  },
-  year: 2019,
-  category: "Movie",
-  rating: "PG",
-  isBookmarked: false,
-  isTrending: true,
-};
-
 function getIcon(category) {
   category = category.toLowerCase();
 
@@ -29,7 +9,7 @@ function getIcon(category) {
   if (category === "tv series") return <SeriesIcon />;
 }
 
-function MovieDetails({ type }) {
+function MovieDetails({ type, movie }) {
   const CategoryIcon = getIcon(movie.category);
 
   return (

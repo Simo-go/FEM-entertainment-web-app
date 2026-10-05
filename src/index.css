@@ -160,6 +160,10 @@ body {
   color: var(--clr-white);
 }
 
+.title {
+  margin-bottom: var(--space-200);
+}
+
 /********************************************/
 /* MEDIA QUERIES */
 /********************************************/
@@ -199,5 +203,9 @@ body {
     font-size: 1.8rem;
     line-height: 1.25;
     font-weight: var(--fw-medium);
+  }
+
+  .title {
+    margin-bottom: var(--space-300);
   }
 }
