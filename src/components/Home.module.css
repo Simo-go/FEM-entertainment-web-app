@@ -1,3 +1,3 @@
-.title {
+:global(.title) {
   margin-bottom: var(--space-200);
 }
