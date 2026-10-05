@@ -4,7 +4,6 @@
 .formContainer {
   display: flex;
   gap: var(--space-200);
-  padding-inline: var(--space-200);
   margin-bottom: var(--space-300);
 }
 
@@ -53,7 +52,7 @@
   opacity: 0.5;
 }
 
-:has(.searchInput:hover)::after {
+:has(.searchInput:hover, .searchInput:focus-within)::after {
   transform: translateX(-50%) scale(1);
 }
 
