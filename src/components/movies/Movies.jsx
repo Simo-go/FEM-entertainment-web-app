@@ -1,18 +1,18 @@
 import MediaBox from "../mediabox/MediaBox";
 import styles from "./Movies.module.css";
-import MoviesList from "../movieslist/MoviesList";
-import { useMovies } from "../../contexts/MoviesProvider";
+import MediaList from "../medialist/MediaList";
+import { useMedia } from "../../contexts/MediaProvider";
 
 function Movies() {
   const {
-    state: { movies: media },
-  } = useMovies();
+    state: { media },
+  } = useMedia();
   const movies = media.filter(media => media.category === "Movie").toSorted((a, b) => b.year - a.year);
 
   return (
     <MediaBox>
       <h2 className="title text-preset-1">Movies</h2>
-      <MoviesList movies={movies} />
+      <MediaList media={movies} />
     </MediaBox>
   );
 }

@@ -5,11 +5,11 @@ import Movies from "./components/movies/Movies";
 import TvSeries from "./components/tvseries/TvSeries";
 import Bookmarks from "./components/bookmarks/Bookmarks";
 import Search from "./components/search/Search";
-import { MoviesProvider } from "./contexts/MoviesProvider";
+import { MediaProvider } from "./contexts/MediaProvider";
 
 function App() {
   return (
-    <MoviesProvider>
+    <MediaProvider>
       <BrowserRouter>
         <Routes>
           {/* <Route index path="/login" /> */}
@@ -22,7 +22,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </MoviesProvider>
+    </MediaProvider>
   );
 }
 

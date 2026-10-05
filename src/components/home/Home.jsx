@@ -1,12 +1,12 @@
 import styles from "./Home.module.css";
 import TrendingMoviesBox from "../trendingmovies/TrendingMoviesBox";
-import RecommendedMoviesBox from "../recommendedMovies/RecommendedMoviesBox";
+import RecommendedMediaBox from "../recommendedMediaBox/RecommendedMediaBox";
 
 function Home() {
   return (
     <>
       <TrendingMoviesBox />
-      <RecommendedMoviesBox />
+      <RecommendedMediaBox />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import Button from "../button/Button";
 import BookmarkIcon from "../../assets/icon-bookmark-empty.svg?react";
-import styles from "./Movie.module.css";
+import styles from "./MediaCard.module.css";
 
 const movie = {
   title: "Beyond Earth",

@@ -1,18 +1,18 @@
-import { useMovies } from "../../contexts/MoviesProvider";
+import { useMedia } from "../../contexts/MediaProvider";
 import MediaBox from "../mediabox/MediaBox";
-import MoviesList from "../movieslist/MoviesList";
+import MediaList from "../medialist/MediaList";
 
 function TvSeries() {
   const {
-    state: { movies: media },
-  } = useMovies();
+    state: { media },
+  } = useMedia();
 
   const series = media.filter(media => media.category.toLowerCase() === "tv series").toSorted((a, b) => b.year - a.year);
 
   return (
     <MediaBox>
       <h2 className="title text-preset-1">TV Series</h2>
-      <MoviesList movies={series} />
+      <MediaList media={series} />
     </MediaBox>
   );
 }

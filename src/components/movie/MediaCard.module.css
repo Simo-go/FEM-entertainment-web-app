@@ -1,4 +1,4 @@
-.movie {
+.media {
   cursor: pointer;
 
   position: relative;
@@ -16,7 +16,7 @@
   margin-bottom: var(--space-100);
 }
 
-.movie--compact .poster {
+.media--compact .poster {
   filter: brightness(0.7);
 
   margin-bottom: 0;
@@ -43,7 +43,7 @@
   transition: opacity 0.5s;
 }
 
-.movie:has(.bookmarkWrapper:not(:hover)):hover .playBtn {
+.media:has(.bookmarkWrapper:not(:hover)):hover .playBtn {
   opacity: 1;
 }
 
@@ -53,13 +53,13 @@
   gap: var(--space-100);
 }
 
-.movie--compact .detailsContainer {
+.media--compact .detailsContainer {
   position: absolute;
   left: 1.6rem;
   bottom: 1.4rem;
 }
 
-.movieDetails {
+.mediaDetails {
   opacity: 0.75;
 
   display: flex;
@@ -78,7 +78,7 @@
   height: 0.3rem;
 }
 
-.movieDetailsItem {
+.mediaDetailsItem {
   display: flex;
   gap: var(--space-50);
 }
@@ -115,7 +115,7 @@
 
 /* tablet */
 @media (min-width: 48em) {
-  .movie--compact .poster {
+  .media--compact .poster {
     width: 47rem;
     height: 23rem;
   }

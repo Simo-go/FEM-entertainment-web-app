@@ -1,4 +1,3 @@
-import { useMovies } from "../../contexts/MoviesProvider";
 import styles from "./MediaBox.module.css";
 
 function MediaBox({ children, className }) {
