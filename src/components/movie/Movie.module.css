@@ -1,4 +1,6 @@
 .movie {
+  cursor: pointer;
+
   position: relative;
   flex: none;
 }
@@ -87,6 +89,7 @@
   border-radius: var(--radius-full);
   background-color: var(--clr-blue-950);
   background-color: hsla(223, 30%, 9%, 0.5);
+  cursor: pointer;
 
   position: absolute;
   top: 0.8rem;
