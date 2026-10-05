@@ -2,3 +2,14 @@
   min-height: 100vh;
   background-color: var(--clr-blue-950);
 }
+
+/* Desktop (1440px) */
+@media (min-width: 90em) {
+  .appContainer {
+    display: flex;
+    gap: 3.6rem;
+    height: 100vh;
+    overflow-y: hidden;
+    padding: var(--space-400) 0 var(--space-400) var(--space-400);
+  }
+}

@@ -8,7 +8,7 @@ import { NavLink } from "react-router";
 
 function Menu() {
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul className={styles.list}>
         <NavLink to="/">
           <MenuItem Icon={HomeIcon} />

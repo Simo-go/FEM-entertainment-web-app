@@ -14,3 +14,13 @@
     gap: var(--space-400);
   }
 }
+
+/* Desktop (1440px) */
+@media (min-width: 90em) {
+  .header {
+    flex-direction: column;
+    gap: 7.2rem;
+    justify-content: start;
+    padding: var(--space-400) 2.8rem;
+  }
+}

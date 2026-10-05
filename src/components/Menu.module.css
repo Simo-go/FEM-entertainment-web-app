@@ -1,3 +1,7 @@
+.nav {
+  flex: none;
+}
+
 .list {
   list-style: none;
 
@@ -9,4 +13,16 @@
 
 :global(.active) path {
   fill: var(--clr-white) !important;
+}
+
+/* Desktop (1440px) */
+@media (min-width: 90em) {
+  .list {
+    flex-direction: column;
+    gap: var(--space-500);
+  }
+
+  .nav {
+    margin-bottom: auto;
+  }
 }

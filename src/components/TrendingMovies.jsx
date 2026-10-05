@@ -9,6 +9,7 @@ function TrendingMovies() {
       <Movie type="compact" />
       <Movie type="compact" />
       <Movie type="compact" />
+      <Movie type="compact" />
     </ul>
   );
 }

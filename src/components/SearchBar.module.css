@@ -36,7 +36,7 @@
   /* opacity: 0; */
 }
 
-:has(.searchInput:hover, .searchInput:focus-within)::after {
+:has(.searchInput:hover, .searchInput:focus-within, .searchInput:not(:placeholder-shown))::after {
   transform: translateX(-50%) scaleX(1);
   opacity: 1;
   transition: all 0.4s ease-out;

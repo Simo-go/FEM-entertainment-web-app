@@ -1,9 +1,21 @@
 .mainContainer {
+  flex: 1;
   padding: var(--space-300) var(--space-200);
 }
 
+/* tablet (768px) */
 @media (min-width: 48em) {
   .mainContainer {
     padding: var(--space-400) var(--space-300);
+  }
+}
+
+/* Desktop (1440px) */
+@media (min-width: 90em) {
+  .mainContainer {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: var(--space-400) 3.6rem var(--space-400) 0;
+    margin-bottom: calc(-1 * var(--space-400));
   }
 }
