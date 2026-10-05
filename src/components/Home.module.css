@@ -5,3 +5,13 @@
 .trendingBox {
   margin-bottom: var(--space-300);
 }
+
+@media (min-width: 48em) {
+  :global(.title) {
+    margin-bottom: var(--space-300);
+  }
+
+  .trendingBox {
+    margin-bottom: var(--space-500);
+  }
+}

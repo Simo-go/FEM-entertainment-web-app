@@ -1,3 +1,9 @@
 .mainContainer {
   padding: var(--space-300) var(--space-200);
 }
+
+@media (min-width: 48em) {
+  .mainContainer {
+    padding: var(--space-400) var(--space-300);
+  }
+}

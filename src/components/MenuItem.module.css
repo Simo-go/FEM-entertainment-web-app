@@ -13,5 +13,13 @@
 }
 
 .item:hover path {
-  fill: var(--clr-white);
+  fill: var(--clr-red-500);
+}
+
+/* Tablet */
+@media (min-width: 48em) {
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
 }

@@ -1,3 +1,16 @@
 .logo {
-  flex: none;
+  flex: 0 0 auto;
+}
+
+/* Tablet */
+@media (min-width: 48em) {
+  .logo {
+    width: 3.2rem;
+    height: 2.56rem;
+  }
+
+  .logo path {
+    width: 3.2rem;
+    height: 2.56rem;
+  }
 }

@@ -36,9 +36,12 @@ function Movie({ type = "regular" }) {
   return (
     <li className={`${styles.movie} ${type === "compact" ? styles["movie--compact"] : ""}`}>
       <article>
-        <img src={movie.thumbnail.trending.small} alt="" className={styles.poster} />
+        <picture>
+          <source media="(min-width: 48em)" srcset={type === "compact" ? movie.thumbnail.trending.large : movie.thumbnail.regular.large} />
+          <img src={type === "compact" ? movie.thumbnail.trending.small : movie.thumbnail.regular.small} alt="" className={styles.poster} />
+        </picture>
         <div className={styles.detailsContainer}>
-          <ul className={`list text-preset-5 ${styles.movieDetails}`}>
+          <ul className={`list ${type === "compact" ? "text-preset-5" : "text-preset-6"} ${styles.movieDetails || ""}`}>
             <li className={styles.movieDetailsItem}>{movie.year}</li>
             <span className={styles.detailsSeparator}></span>
             <li className={styles.movieDetailsItem}>
@@ -48,7 +51,7 @@ function Movie({ type = "regular" }) {
             <span className={styles.detailsSeparator}></span>
             <li className={styles.movieDetailsItem}>{movie.rating}</li>
           </ul>
-          <h3 className={`text-preset-3 ${styles.movieTitle}`}>{movie.title}</h3>
+          <h3 className={`${type === "compact" ? "text-preset-3" : "text-preset-4"} ${styles.movieTitle || ""}`}>{movie.title}</h3>
         </div>
         <div className={styles.bookmarkWrapper}>
           <BookmarkIcon className={`${styles.bookmarkIcon} ${movie.isBookmarked ? styles.isBookmarked : ""}`} />

@@ -81,3 +81,16 @@
 .isBookmarked path {
   fill: var(--clr-white);
 }
+
+/* tablet */
+@media (min-width: 48em) {
+  .movie--compact .poster {
+    width: 47rem;
+    height: 23rem;
+  }
+
+  .bookmarkWrapper {
+    top: 1.6rem;
+    right: 1.6rem;
+  }
+}

@@ -8,5 +8,5 @@
 }
 
 :global(.active) path {
-  fill: var(--clr-white);
+  fill: var(--clr-white) !important;
 }

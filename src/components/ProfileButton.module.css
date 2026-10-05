@@ -6,3 +6,10 @@
   border-radius: 50%;
   border: 2px solid var(--clr-white);
 }
+
+@media (min-width: 48em) {
+  .btn--profile {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}

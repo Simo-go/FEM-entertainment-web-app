@@ -1,7 +1,15 @@
 .moviesList {
-  --min-grid-width: 16rem;
+  --min-grid-width: clamp(160px, calc(11.2676vw + 117.746px), 280px);
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--min-grid-width), 1fr));
   gap: var(--space-200);
+}
+
+/* Tablet */
+@media (min-width: 48em) {
+  .moviesList {
+    row-gap: var(--space-300);
+    column-gap: 3rem;
+  }
 }

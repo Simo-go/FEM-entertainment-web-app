@@ -5,3 +5,11 @@
   margin-right: calc(-1 * var(--space-200));
   padding-bottom: var(--space-100);
 }
+
+/* Tablet */
+@media (min-width: 48em) {
+  .trendingList {
+    gap: var(--space-500);
+    margin-right: calc(-1 * var(--space-300));
+  }
+}
