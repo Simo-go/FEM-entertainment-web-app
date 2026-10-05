@@ -7,7 +7,6 @@ function TrendingMovies() {
   const {
     state: { movies },
   } = useMovies();
-  console.log(movies);
 
   if (movies.length === 0) return <Loader />;
 

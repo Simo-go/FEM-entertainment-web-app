@@ -2,19 +2,14 @@ import styles from "./MoviesList.module.css";
 import Movie from "../movie/Movie";
 import { useMovies } from "../../contexts/MoviesProvider";
 import Loader from "../loader/loader";
-import { useMemo } from "react";
 
-function MoviesList() {
+function MoviesList({ movies }) {
   const {
-    state: { movies, isLoading },
+    state: { isLoading },
   } = useMovies();
-  const recommendedMovies = useMemo(() => movies.toSorted((a, b) => b.year - a.year), [movies]);
-  // Note: this is just performed based on the year because the fake API doesn't provide any ratings.
 
   return (
-    <ul className={`list ${styles.moviesList}`}>
-      {isLoading ? <Loader /> : recommendedMovies.map(movie => <Movie key={movie.id} movie={movie} />)}
-    </ul>
+    <ul className={`list ${styles.moviesList}`}>{isLoading ? <Loader /> : movies.map(movie => <Movie key={movie.id} movie={movie} />)}</ul>
   );
 }
 
