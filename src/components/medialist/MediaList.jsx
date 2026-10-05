@@ -3,13 +3,15 @@ import Movie from "../movie/MediaCard";
 import { useMedia } from "../../contexts/MediaProvider";
 import Loader from "../loader/loader";
 
-function MediaList({ media }) {
+function MediaList({ media, className = "", cardType = "regular" }) {
   const {
     state: { isLoading },
   } = useMedia();
 
   return (
-    <ul className={`list ${styles.moviesList}`}>{isLoading ? <Loader /> : media.map(media => <Movie key={media.id} media={media} />)}</ul>
+    <ul className={`list ${styles.moviesList} ${className}`}>
+      {isLoading ? <Loader /> : media.map(media => <Movie key={media.id} media={media} type={cardType} />)}
+    </ul>
   );
 }
 

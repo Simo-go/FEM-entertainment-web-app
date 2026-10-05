@@ -1,0 +1,5 @@
+.loader svg {
+  fill: var(--clr-blue-500);
+  width: 5rem;
+  height: 5rem;
+}

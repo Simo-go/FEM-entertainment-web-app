@@ -6,6 +6,25 @@
   padding-right: var(--space-200);
 }
 
+:global(.list).trendingList {
+  display: flex;
+  gap: var(--space-200);
+  overflow-x: auto;
+  margin-right: calc(-1 * var(--space-200));
+  padding-bottom: var(--space-100);
+}
+
+.trendingList::-webkit-scrollbar {
+  height: 3px;
+  background-color: var(--clr-blue-900);
+  border-radius: var(--radius-full);
+}
+
+.trendingList::-webkit-scrollbar-thumb {
+  background-color: hsl(223, 36%, 25%);
+  border-radius: var(--radius-full);
+}
+
 /* Tablet (768px) */
 @media (min-width: 48em) {
   .trendingBox {
@@ -14,11 +33,20 @@
   .scrollbarWrapper {
     padding-right: var(--space-300);
   }
+
+  :global(.list).trendingList {
+    gap: var(--space-500);
+    margin-right: calc(-1 * var(--space-300));
+  }
 }
 
 /* Desktop (1440px) */
 @media (min-width: 90em) {
   .scrollbarWrapper {
     padding-right: 3.6rem;
+  }
+
+  :global(.list).trendingList {
+    margin-right: -3.6rem;
   }
 }
