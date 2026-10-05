@@ -10,7 +10,7 @@ function MediaCard({ type = "regular", media }) {
         <MediaPoster type={type} media={media} />
         <MediaDetails type={type} media={media} />
       </article>
-      <BookmarkButton />
+      <BookmarkButton isBookmarked={media.isBookmarked} />
     </li>
   );
 }

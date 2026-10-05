@@ -2,30 +2,10 @@ import Button from "../button/Button";
 import BookmarkIcon from "../../assets/icon-bookmark-empty.svg?react";
 import styles from "./MediaCard.module.css";
 
-const movie = {
-  title: "Beyond Earth",
-  thumbnail: {
-    trending: {
-      small: "/assets/thumbnails/beyond-earth/trending/small.jpg",
-      large: "/assets/thumbnails/beyond-earth/trending/large.jpg",
-    },
-    regular: {
-      small: "/assets/thumbnails/beyond-earth/regular/small.jpg",
-      medium: "/assets/thumbnails/beyond-earth/regular/medium.jpg",
-      large: "/assets/thumbnails/beyond-earth/regular/large.jpg",
-    },
-  },
-  year: 2019,
-  category: "Movie",
-  rating: "PG",
-  isBookmarked: false,
-  isTrending: true,
-};
-
-function BookmarkButton() {
+function BookmarkButton({ isBookmarked = false }) {
   return (
     <Button className={`btn ${styles.bookmarkWrapper}`}>
-      <BookmarkIcon className={`${styles.bookmarkIcon} ${movie.isBookmarked ? styles.isBookmarked : ""}`} />
+      <BookmarkIcon className={`${styles.bookmarkIcon} ${isBookmarked ? styles.isBookmarked : ""}`} />
     </Button>
   );
 }
