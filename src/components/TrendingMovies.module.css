@@ -2,5 +2,6 @@
   display: flex;
   gap: var(--space-200);
   overflow-x: auto;
+  margin-right: calc(-1 * var(--space-200));
   padding-bottom: var(--space-100);
 }
