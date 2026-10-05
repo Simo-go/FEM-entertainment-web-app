@@ -3,6 +3,10 @@
   flex: none;
 }
 
+.posterWrapper {
+  position: relative;
+}
+
 .poster {
   border-radius: var(--radius-8);
   object-fit: cover;
@@ -16,6 +20,29 @@
   margin-bottom: 0;
   width: 24rem;
   height: 14rem;
+}
+
+.playBtn {
+  opacity: 0;
+  background-color: hsla(0, 0%, 100%, 0.25);
+  color: var(--clr-white);
+  border-radius: var(--radius-full);
+
+  width: 11.7rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: var(--space-200);
+  align-items: center;
+  padding: var(--space-100);
+
+  transition: opacity 0.5s;
+}
+
+.movie:has(.bookmarkWrapper:not(:hover)):hover .playBtn {
+  opacity: 1;
 }
 
 .detailsContainer {
@@ -73,8 +100,9 @@
 
 .bookmarkIcon path {
   stroke: var(--clr-white);
+  fill: transparent;
 
-  transition: var(--base-transition);
+  transition: all 0.3s;
 }
 
 .bookmarkWrapper:hover path,
