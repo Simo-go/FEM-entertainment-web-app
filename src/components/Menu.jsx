@@ -8,10 +8,10 @@ import styles from "./Menu.module.css";
 function Menu() {
   return (
     <ul className={styles.list}>
-      <MenuItem El={HomeIcon} />
-      <MenuItem El={MoviesIcon} />
-      <MenuItem El={SeriesIcon} />
-      <MenuItem El={BookmarkIcon} />
+      <MenuItem Icon={HomeIcon} />
+      <MenuItem Icon={MoviesIcon} />
+      <MenuItem Icon={SeriesIcon} />
+      <MenuItem Icon={BookmarkIcon} />
     </ul>
   );
 }

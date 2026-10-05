@@ -94,6 +94,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
+  color: var(--clr-white);
 }
 
 /********************************************/
@@ -102,6 +103,7 @@ body {
 .btn {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 /********************************************/

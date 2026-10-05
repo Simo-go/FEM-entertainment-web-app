@@ -1,9 +1,11 @@
 import styles from "./MenuItem.module.css";
 
-function MenuItem({ El }) {
+function MenuItem({ Icon }) {
   return (
     <li className={styles.item}>
-      <El className={styles.icon} viewBox="0 0 20 20"></El>
+      <button className="btn">
+        <Icon className={styles.icon} viewBox="0 0 20 20"></Icon>
+      </button>
     </li>
   );
 }

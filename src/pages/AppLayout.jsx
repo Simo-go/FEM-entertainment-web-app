@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 import Main from "../components/Main";
 import NavBar from "../components/NavBar";
-import SearchBar from "../components/Searchbar";
+import SearchBar from "../components/SearchBar";
 
 import styles from "./AppLayout.module.css";
 
