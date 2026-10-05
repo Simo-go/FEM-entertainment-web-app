@@ -1,0 +1,6 @@
+.trendingList {
+  display: flex;
+  gap: var(--space-200);
+  overflow-x: auto;
+  padding-bottom: var(--space-100);
+}
