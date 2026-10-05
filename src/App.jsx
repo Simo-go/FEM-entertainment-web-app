@@ -16,7 +16,7 @@ function App() {
           <Route path="movies" element={<Movies />} />
           <Route path="series" element={<TvSeries />} />
           <Route path="bookmarks" element={<Bookmarks />} />
-          <Route path="search" element={<Search />} />
+          <Route path=":page/search" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>

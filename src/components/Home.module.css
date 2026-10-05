@@ -1,3 +1,7 @@
 :global(.title) {
   margin-bottom: var(--space-200);
 }
+
+.trendingBox {
+  margin-bottom: var(--space-300);
+}
