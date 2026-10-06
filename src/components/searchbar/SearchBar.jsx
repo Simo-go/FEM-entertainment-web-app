@@ -4,18 +4,17 @@ import { useLocation, useNavigate, useParams } from "react-router";
 
 function createPlaceholderText(path) {
   let placeholderText;
+  path = path.split("/")[1];
+  console.log(path);
 
   switch (path) {
-    case "/":
-      placeholderText = "Search for movies or TV series";
-      break;
-    case "/movies":
+    case "movies":
       placeholderText = "Search for movies";
       break;
-    case "/series":
+    case "series":
       placeholderText = "Search for TV series";
       break;
-    case "/bookmarks":
+    case "bookmarks":
       placeholderText = "Search for bookmarked shows";
       break;
     default:
@@ -35,14 +34,17 @@ function SearchBar({ query, setQuery }) {
     if (query.length < 2) return;
 
     const page = path.split("/")[1];
-    const scope = page !== "home" ? page : "media";
+    console.log(page);
+
+    const scope = page == "" || page == "search" ? "media" : page;
 
     let searchPath;
-    if (path === "/") searchPath = `home/search?q=${query}&scope=${scope}`;
+    if (path === "/") searchPath = `/search?q=${query}&scope=${scope}`;
     else if (path.includes("search")) searchPath = path + `?q=${query}&scope=${scope}`;
     else searchPath = path + `/search?q=${query}&scope=${scope}`;
 
     navigate(searchPath);
+    setQuery("");
   }
 
   return (
