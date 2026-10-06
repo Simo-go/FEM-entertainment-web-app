@@ -1,6 +1,6 @@
 import styles from "./SearchBar.module.css";
 import SearchIcon from "../../assets/icon-search.svg?react";
-import { useLocation, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { useMedia } from "../../contexts/MediaProvider";
 
 function createPlaceholderText(path) {
@@ -27,12 +27,24 @@ function createPlaceholderText(path) {
 }
 
 function SearchBar({ query, setQuery }) {
-  const { pathname: path } = useLocation();
+  const location = useLocation();
+  const path = location.pathname;
   const { getMediaBy } = useMedia();
+  const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    getMediaBy(query, "series");
+    if (query.length < 2) return;
+
+    const scope = path.split("/")[1] || "media";
+    console.log(scope);
+
+    let searchPath;
+    if (path === "/") searchPath = `home/search?q=${query}&scope=${scope}`;
+    else if (path.includes("search")) searchPath = path + `?q=${query}&scope=${scope}`;
+    else searchPath = path + `/search?q=${query}&scope=${scope}`;
+
+    navigate(searchPath);
   }
 
   return (
