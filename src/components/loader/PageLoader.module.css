@@ -1,0 +1,9 @@
+.pageLoader circle {
+  stroke: var(--clr-blue-500);
+}
+
+.pageLoader {
+  height: 100vh;
+  display: grid !important;
+  place-items: center;
+}

@@ -5,7 +5,8 @@ import NavBar from "../components/navbar/NavBar";
 import SearchBar from "../components/searchbar/SearchBar";
 
 import styles from "./AppLayout.module.css";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import PageLoader from "../components/loader/PageLoader";
 
 function AppLayout() {
   const [query, setQuery] = useState("");
@@ -15,7 +16,9 @@ function AppLayout() {
       <NavBar />
       <Main>
         <SearchBar query={query} setQuery={setQuery} />
-        <Outlet />
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </Main>
     </div>
   );
