@@ -10,7 +10,7 @@ function BookmarkButton({ medium }) {
   } = useMedia();
 
   function handleClick() {
-    console.log("test");
+    console.log(medium.isBookmarked);
 
     updateMedium(medium.id, !medium.isBookmarked);
   }

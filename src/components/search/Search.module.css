@@ -1,0 +1,6 @@
+.noResults {
+  display: flex;
+  justify-content: center;
+  color: var(--clr-white);
+  opacity: 0.5;
+}
