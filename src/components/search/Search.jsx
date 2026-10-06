@@ -13,7 +13,7 @@ function Search() {
   const [searchResults, setSearchResults] = useState([]);
   const {
     getMediaBy,
-    state: { isLoadingBookmark },
+    state: { isLoadingBookmark, isLoading },
   } = useMedia();
   const { pathname: path } = useLocation();
 
@@ -41,13 +41,15 @@ function Search() {
 
   return (
     <MediaBox>
-      {searchResults.length === 0 ? (
+      {searchResults.length === 0 && !isLoading ? (
         <div className={`text-preset-2 ${styles.noResults}`}>No search result found</div>
       ) : (
         <>
-          <h2 className="title text-preset-1">
-            Found {searchResults.length} resutls for '{query}'
-          </h2>
+          {!isLoading && (
+            <h2 className="title text-preset-1">
+              Found {searchResults.length} resutls for '{query}'
+            </h2>
+          )}
           <MediaList media={searchResults} />
         </>
       )}

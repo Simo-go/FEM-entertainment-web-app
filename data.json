@@ -16,7 +16,7 @@
       "year": 2019,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": true,
+      "isBookmarked": false,
       "isTrending": true,
       "id": "6o9B6lxEvVo"
     },
@@ -96,7 +96,7 @@
       "year": 2018,
       "category": "TV Series",
       "rating": "PG",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": true,
       "id": "Aqs595vXLcs"
     },
@@ -112,7 +112,7 @@
       "year": 2019,
       "category": "Movie",
       "rating": "E",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": false,
       "id": "96fwGzysQm4"
     },
@@ -128,7 +128,7 @@
       "year": 2019,
       "category": "TV Series",
       "rating": "PG",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": false,
       "id": "e1ZqIjPGVM4"
     },
