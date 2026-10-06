@@ -1,10 +1,16 @@
 .mediaList {
   --min-grid-width: clamp(160px, calc(11.2676vw + 117.746px), 280px);
+  --repeated-value: auto-fill;
 
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(var(--min-grid-width), 1fr));
+  grid-template-columns: repeat(var(--repeated-value), minmax(var(--min-grid-width), 1fr));
   gap: var(--space-200);
+}
+
+.isLoading {
+  justify-content: center;
+  --repeated-value: auto-fit;
 }
 
 /* Tablet */

@@ -23,6 +23,7 @@ function Search() {
       async function getSearchResults() {
         const media = await getMediaBy(query, scope, controller.signal);
         if (!media) return;
+        console.log(media);
 
         setSearchResults(media);
       }
