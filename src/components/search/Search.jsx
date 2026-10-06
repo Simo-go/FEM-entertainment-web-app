@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router";
+import { useLocation, useSearchParams } from "react-router";
 import { useEffect, useState } from "react";
 import { useMedia } from "../../contexts/MediaProvider";
 
@@ -15,17 +15,17 @@ function Search() {
     getMediaBy,
     state: { isLoading },
   } = useMedia();
-
-  console.log(searchResults, isLoading);
+  const { pathname: path } = useLocation();
 
   useEffect(
     function () {
       const controller = new AbortController();
 
       async function getSearchResults() {
-        const media = await getMediaBy(query, scope, controller.signal);
+        const bookmarkedOnly = path.includes("bookmarks");
+
+        const media = await getMediaBy(query, scope, controller.signal, bookmarkedOnly);
         if (!media) return;
-        console.log(media);
 
         setSearchResults(media);
       }
@@ -34,7 +34,7 @@ function Search() {
 
       return () => controller.abort();
     },
-    [query, scope, getMediaBy],
+    [query, scope, getMediaBy, path],
   );
 
   return (

@@ -85,7 +85,7 @@ function MediaProvider({ children }) {
    * @param {String} scope Scope to search for: media | movies | series
    */
   const getMediaBy = useCallback(
-    async function getMediaBy(query, scope = "media", signal) {
+    async function getMediaBy(query, scope = "media", signal, bookmarkedOnly = false) {
       const media = await fetchMedia(signal);
       if (!media) return;
       dispatch({ type: "loaded" });
@@ -102,6 +102,8 @@ function MediaProvider({ children }) {
         filteredMedia = media
           .filter(medium => medium.category.toLowerCase() === "tv series")
           .filter(serie => queryStrings.some(str => serie.title.toLowerCase().includes(str)));
+
+      if (bookmarkedOnly) filteredMedia = filteredMedia.filter(media => media.isBookmarked);
 
       return filteredMedia;
     },

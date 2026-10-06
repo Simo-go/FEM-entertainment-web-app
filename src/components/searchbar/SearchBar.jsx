@@ -36,7 +36,7 @@ function SearchBar({ query, setQuery }) {
     const page = path.split("/")[1];
     console.log(page);
 
-    const scope = page == "" || page == "search" ? "media" : page;
+    const scope = page === "" || page === "search" || page === "bookmarks" ? "media" : page;
 
     let searchPath;
     if (path === "/") searchPath = `/search?q=${query}&scope=${scope}`;
