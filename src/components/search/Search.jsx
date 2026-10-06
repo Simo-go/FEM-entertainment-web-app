@@ -13,12 +13,14 @@ function Search() {
   const [searchResults, setSearchResults] = useState([]);
   const {
     getMediaBy,
-    state: { isLoading },
+    state: { isLoadingBookmark },
   } = useMedia();
   const { pathname: path } = useLocation();
 
   useEffect(
     function () {
+      if (isLoadingBookmark) return;
+
       const controller = new AbortController();
 
       async function getSearchResults() {
@@ -34,7 +36,7 @@ function Search() {
 
       return () => controller.abort();
     },
-    [query, scope, getMediaBy, path],
+    [query, scope, getMediaBy, path, isLoadingBookmark],
   );
 
   return (

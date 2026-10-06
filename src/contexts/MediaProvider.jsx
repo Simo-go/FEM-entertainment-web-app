@@ -23,7 +23,7 @@ function reducer(state, action) {
     case "medium/updated": {
       const updatedMedia = state.media.map(medium => (medium.id === action.payload.id ? action.payload : medium));
 
-      return { ...state, isLoading: false, media: updatedMedia };
+      return { ...state, isLoadingBookmark: false, media: updatedMedia };
     }
     case "error":
       return { ...state, isLoading: false, error: action.payload };
