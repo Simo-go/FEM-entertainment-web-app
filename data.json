@@ -36,7 +36,7 @@
       "year": 2021,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": true,
       "id": "RCY8r1B4ROI"
     },
@@ -485,5 +485,5 @@
       "id": "p8xmdJkR4vc"
     }
   ],
-  "$schema": "/node_modules/json-server/schema.json"
+  "$schema": "./node_modules/json-server/schema.json"
 }

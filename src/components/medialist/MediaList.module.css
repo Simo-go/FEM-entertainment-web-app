@@ -1,4 +1,4 @@
-.moviesList {
+.mediaList {
   --min-grid-width: clamp(160px, calc(11.2676vw + 117.746px), 280px);
 
   display: grid;
@@ -9,7 +9,7 @@
 
 /* Tablet */
 @media (min-width: 48em) {
-  .moviesList {
+  .mediaList {
     row-gap: var(--space-300);
     column-gap: 3rem;
   }
@@ -17,7 +17,7 @@
 
 /* Desktop (1440px) */
 @media (min-width: 90em) {
-  .moviesList {
+  .mediaList {
     column-gap: var(--space-500);
   }
 }

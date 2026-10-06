@@ -9,7 +9,7 @@ function MediaList({ media, className = "", cardType = "regular" }) {
   } = useMedia();
 
   return (
-    <ul className={`list ${styles.moviesList} ${className}`}>
+    <ul className={`list ${styles.mediaList} ${className ?? ""}`}>
       {isLoading ? <Loader /> : media.map(media => <Movie key={media.id} media={media} type={cardType} />)}
     </ul>
   );
