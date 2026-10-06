@@ -8,6 +8,7 @@ const initialState = {
   error: "",
   bookmarkError: "",
 };
+const BASE_URL = "http://localhost:3000/media/";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -37,7 +38,7 @@ function MediaProvider({ children }) {
   async function updateMedium(id, newValue) {
     dispatch({ type: "loadingBookmark" });
     try {
-      const res = await fetch(`http://localhost:3000/media/${id}`, {
+      const res = await fetch(`${BASE_URL}${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -58,27 +59,54 @@ function MediaProvider({ children }) {
     }
   }
 
-  useEffect(function () {
-    async function fetchMovies() {
-      dispatch({ type: "loading" });
+  async function fetchMedia() {
+    dispatch({ type: "loading" });
 
-      try {
-        const res = await fetch("http://localhost:3000/media");
+    try {
+      const res = await fetch(`${BASE_URL}`);
 
-        if (!res.ok) throw new Error("Problem during fetching of media");
+      if (!res.ok) throw new Error("Problem during fetching of media");
 
-        const data = await res.json();
-        dispatch({ type: "media/loaded", payload: data });
-      } catch (err) {
-        console.log(err.message);
-        dispatch({ type: "error", payload: err.message });
-      }
+      const data = await res.json();
+      dispatch({ type: "media/loaded", payload: data });
+
+      return data;
+    } catch (err) {
+      console.log(err.message);
+      dispatch({ type: "error", payload: err.message });
     }
+  }
 
-    fetchMovies();
+  /**
+   * Searches for media based on a query string. NOTE! This function simulates a fetching based on a query by fetching all media and then filtering locally
+   * @param {String} query String to search media by
+   * @param {String} scope Scope to search for: media | movies | series
+   */
+  async function getMediaBy(query, scope = "media") {
+    const media = await fetchMedia();
+    const queryStrings = query.toLowerCase().split(" ");
+    let filteredMedia;
+    console.log(query, scope);
+    console.log(media);
+
+    if (scope === "media") filteredMedia = media.filter(medium => queryStrings.some(str => medium.title.toLowerCase().includes(str)));
+    if (scope === "movies")
+      filteredMedia = media
+        .filter(medium => medium.category.toLowerCase() === "movie")
+        .filter(movie => queryStrings.some(str => movie.title.toLowerCase().includes(str)));
+    if (scope === "series")
+      filteredMedia = media
+        .filter(medium => medium.category.toLowerCase() === "tv series")
+        .filter(serie => queryStrings.some(str => serie.title.toLowerCase().includes(str)));
+
+    return filteredMedia;
+  }
+
+  useEffect(function () {
+    fetchMedia();
   }, []);
 
-  return <MediaContext.Provider value={{ state, updateMedium }}>{children}</MediaContext.Provider>;
+  return <MediaContext.Provider value={{ state, updateMedium, getMediaBy }}>{children}</MediaContext.Provider>;
 }
 
 function useMedia() {

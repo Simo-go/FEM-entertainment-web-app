@@ -1,6 +1,7 @@
 import styles from "./SearchBar.module.css";
 import SearchIcon from "../../assets/icon-search.svg?react";
 import { useLocation, useParams } from "react-router";
+import { useMedia } from "../../contexts/MediaProvider";
 
 function createPlaceholderText(path) {
   let placeholderText;
@@ -25,11 +26,17 @@ function createPlaceholderText(path) {
   return placeholderText;
 }
 
-function SearchBar() {
+function SearchBar({ query, setQuery }) {
   const { pathname: path } = useLocation();
+  const { getMediaBy } = useMedia();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    getMediaBy(query, "series");
+  }
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.formContainer}>
         <SearchIcon viewBox="0 0 32 32" className={styles.icon} />
         <div className={styles.searchWrapper}>
@@ -38,6 +45,8 @@ function SearchBar() {
             autoComplete="off"
             className={`text-preset-2 ${styles.searchInput}`}
             placeholder={createPlaceholderText(path)}
+            value={query}
+            onChange={e => setQuery(e.target.value)}
           />
         </div>
       </div>
