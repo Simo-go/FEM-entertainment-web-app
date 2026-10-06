@@ -34,7 +34,8 @@ function SearchBar({ query, setQuery }) {
     e.preventDefault();
     if (query.length < 2) return;
 
-    const scope = path.split("/")[1] || "media";
+    const page = path.split("/")[1];
+    const scope = page !== "home" ? page : "media";
 
     let searchPath;
     if (path === "/") searchPath = `home/search?q=${query}&scope=${scope}`;
