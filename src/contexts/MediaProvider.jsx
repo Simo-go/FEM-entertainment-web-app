@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useCallback, useContext, useEffect, useReducer } from "react";
 
 const MediaContext = createContext();
 const initialState = {
@@ -59,7 +59,7 @@ function MediaProvider({ children }) {
     }
   }
 
-  async function fetchMedia() {
+  const fetchMedia = useCallback(async function fetchMedia() {
     dispatch({ type: "loading" });
 
     try {
@@ -75,32 +75,33 @@ function MediaProvider({ children }) {
       console.log(err.message);
       dispatch({ type: "error", payload: err.message });
     }
-  }
+  }, []);
 
   /**
    * Searches for media based on a query string. NOTE! This function simulates a fetching based on a query by fetching all media and then filtering locally
    * @param {String} query String to search media by
    * @param {String} scope Scope to search for: media | movies | series
    */
-  async function getMediaBy(query, scope = "media") {
-    const media = await fetchMedia();
-    const queryStrings = query.toLowerCase().split(" ");
-    let filteredMedia;
-    console.log(query, scope);
-    console.log(media);
+  const getMediaBy = useCallback(
+    async function getMediaBy(query, scope = "media") {
+      const media = await fetchMedia();
+      const queryStrings = query.toLowerCase().split(" ");
+      let filteredMedia;
 
-    if (scope === "media") filteredMedia = media.filter(medium => queryStrings.some(str => medium.title.toLowerCase().includes(str)));
-    if (scope === "movies")
-      filteredMedia = media
-        .filter(medium => medium.category.toLowerCase() === "movie")
-        .filter(movie => queryStrings.some(str => movie.title.toLowerCase().includes(str)));
-    if (scope === "series")
-      filteredMedia = media
-        .filter(medium => medium.category.toLowerCase() === "tv series")
-        .filter(serie => queryStrings.some(str => serie.title.toLowerCase().includes(str)));
+      if (scope === "media") filteredMedia = media.filter(medium => queryStrings.some(str => medium.title.toLowerCase().includes(str)));
+      if (scope === "movies")
+        filteredMedia = media
+          .filter(medium => medium.category.toLowerCase() === "movie")
+          .filter(movie => queryStrings.some(str => movie.title.toLowerCase().includes(str)));
+      if (scope === "series")
+        filteredMedia = media
+          .filter(medium => medium.category.toLowerCase() === "tv series")
+          .filter(serie => queryStrings.some(str => serie.title.toLowerCase().includes(str)));
 
-    return filteredMedia;
-  }
+      return filteredMedia;
+    },
+    [fetchMedia],
+  );
 
   useEffect(function () {
     fetchMedia();
