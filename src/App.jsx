@@ -16,6 +16,7 @@ const TvSeries = lazy(() => import("./components/tvseries/TvSeries"));
 const Bookmarks = lazy(() => import("./components/bookmarks/Bookmarks"));
 const Search = lazy(() => import("./components/search/Search"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
+const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
       <BrowserRouter useTransitions={false}>
         <Suspense fallback={<PageLoader />}>
           <Routes>
-            {/* <Route index path="/login" /> */}
+            <Route path="/login" element={<Login />} />
             <Route path="/" element={<AppLayout />}>
               <Route index element={<Home />} />
               <Route path="home" element={<Home />} />
