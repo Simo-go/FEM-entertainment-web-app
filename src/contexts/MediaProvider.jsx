@@ -14,6 +14,8 @@ function reducer(state, action) {
   switch (action.type) {
     case "loading":
       return { ...state, isLoading: true, error: "" };
+    case "loaded":
+      return { ...state, isLoading: false };
     case "loadingBookmark":
       return { ...state, isLoadingBookmark: true, bookmarkError: "" };
     case "media/loaded":
@@ -59,20 +61,20 @@ function MediaProvider({ children }) {
     }
   }
 
-  const fetchMedia = useCallback(async function fetchMedia() {
+  const fetchMedia = useCallback(async function fetchMedia(signal) {
     dispatch({ type: "loading" });
 
     try {
-      const res = await fetch(`${BASE_URL}`);
+      const res = await fetch(`${BASE_URL}`, { signal: signal });
 
       if (!res.ok) throw new Error("Problem during fetching of media");
 
       const data = await res.json();
-      dispatch({ type: "media/loaded", payload: data });
-
       return data;
     } catch (err) {
       console.log(err.message);
+
+      if (err.name === "AbortError") return;
       dispatch({ type: "error", payload: err.message });
     }
   }, []);
@@ -83,8 +85,11 @@ function MediaProvider({ children }) {
    * @param {String} scope Scope to search for: media | movies | series
    */
   const getMediaBy = useCallback(
-    async function getMediaBy(query, scope = "media") {
-      const media = await fetchMedia();
+    async function getMediaBy(query, scope = "media", signal) {
+      const media = await fetchMedia(signal);
+      if (!media) return;
+      dispatch({ type: "loaded" });
+
       const queryStrings = query.toLowerCase().split(" ");
       let filteredMedia;
 
@@ -103,9 +108,23 @@ function MediaProvider({ children }) {
     [fetchMedia],
   );
 
-  useEffect(function () {
-    fetchMedia();
-  }, []);
+  useEffect(
+    function () {
+      async function updateMedia(signal) {
+        const data = await fetchMedia(signal);
+        if (!data) return; // abort signal present
+        dispatch({ type: "media/loaded", payload: data });
+      }
+
+      console.log("uploading state");
+
+      const controller = new AbortController();
+      updateMedia(controller.signal);
+
+      return () => controller.abort();
+    },
+    [fetchMedia],
+  );
 
   return <MediaContext.Provider value={{ state, updateMedium, getMediaBy }}>{children}</MediaContext.Provider>;
 }

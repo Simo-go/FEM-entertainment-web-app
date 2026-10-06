@@ -8,17 +8,28 @@ function Search() {
   let [searchParams] = useSearchParams();
   const query = searchParams.get("q");
   const scope = searchParams.get("scope");
-  const [searchResults, setSearchResults] = useState();
-  const { getMediaBy } = useMedia();
+  const [searchResults, setSearchResults] = useState([]);
+  const {
+    getMediaBy,
+    state: { isLoading },
+  } = useMedia();
+
+  console.log(searchResults, isLoading);
 
   useEffect(
     function () {
+      const controller = new AbortController();
+
       async function getSearchResults() {
-        const media = await getMediaBy(query, scope);
-        console.log(media);
+        const media = await getMediaBy(query, scope, controller.signal);
+        if (!media) return;
+
+        setSearchResults(media);
       }
 
       getSearchResults();
+
+      return () => controller.abort();
     },
     [query, scope, getMediaBy],
   );
@@ -26,7 +37,7 @@ function Search() {
   return (
     <MediaBox>
       <h2 className="title text-preset-1">Found X resutls for '[QUERY]'</h2>
-      {/* <MediaList /> */}
+      <MediaList media={searchResults} />
     </MediaBox>
   );
 }
