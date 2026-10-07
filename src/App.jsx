@@ -22,6 +22,7 @@ const Bookmarks = lazy(() => import("./components/bookmarks/Bookmarks"));
 const Search = lazy(() => import("./components/search/Search"));
 const AppLayout = lazy(() => import("./pages/applayout/AppLayout"));
 const LoginForm = lazy(() => import("./components/loginform/LoginForm"));
+const RegistrationForm = lazy(() => import("./components/registrationform/RegistrationForm"));
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
                   }
                 />
                 <Route path="/login" element={<LoginForm />} />
-                {/* <Route path="/register" */}
+                <Route path="/register" element={<RegistrationForm />} />
               </Route>
               <Route
                 path="/app"
