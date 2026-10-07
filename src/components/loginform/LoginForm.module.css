@@ -8,7 +8,8 @@
 }
 
 .msgNoAccount span {
-  margin-top: var(--space-50);
+  display: inline-block;
+  margin-right: var(--space-50);
 }
 
 .msgNoAccount a {
