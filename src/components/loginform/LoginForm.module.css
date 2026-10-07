@@ -1,9 +1,3 @@
-.loginForm {
-  padding: 2.9rem var(--space-300);
-  background-color: var(--clr-blue-900);
-  border-radius: var(--radius-10);
-}
-
 .loginError {
   display: block;
   margin-bottom: var(--space-200);

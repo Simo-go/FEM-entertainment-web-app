@@ -1,0 +1,10 @@
+.title {
+  font-size: 3.2rem;
+  font-weight: var(--fw-light);
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.header {
+  margin-bottom: var(--space-500);
+}
