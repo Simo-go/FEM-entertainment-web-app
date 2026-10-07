@@ -485,5 +485,5 @@
       "id": "p8xmdJkR4vc"
     }
   ],
-  "$schema": "./node_modules/json-server/schema.json"
+  "users": [{ "id": 123, "email": "simeon@gmail.com", "password": "simeon" }]
 }
