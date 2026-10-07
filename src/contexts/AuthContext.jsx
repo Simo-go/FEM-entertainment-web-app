@@ -13,11 +13,11 @@ function AuthProvider({ children }) {
     // cannot send user information for verification, hence verification happens here!
 
     const users = await fetchUsers("Could not fetch user");
-    if (!users) return; // fetch request failure won't do anything (error handled through error state)
+    if (!users) return false; // fetch request failure won't do anything (error handled through error state)
 
     const user = users.find(user => user.email === email && user.password === passw);
     if (!user) {
-      !formError && setFormError("User not found");
+      setFormError("User not found");
       return false;
     }
     setIsAuthenticated(true);
