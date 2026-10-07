@@ -27,14 +27,15 @@ function App() {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/login" element={<Login />} />
-              <Route path="/" element={<AppLayout />}>
+              <Route path="/" element={<Login />} />
+              <Route path="/app" element={<AppLayout />}>
                 <Route index element={<Home />} />
                 <Route path="home" element={<Home />} />
                 <Route path="movies" element={<Movies />} />
                 <Route path="series" element={<TvSeries />} />
                 <Route path="bookmarks" element={<Bookmarks />} />
                 <Route path=":page/search" element={<Search />} />
-                <Route path="/search" element={<Search />} />
+                <Route path="search" element={<Search />} />
               </Route>
             </Routes>
           </Suspense>

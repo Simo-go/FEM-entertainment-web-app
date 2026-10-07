@@ -4,22 +4,24 @@ import MoviesIcon from "../../assets/icon-nav-movies.svg?react";
 import BookmarkIcon from "../../assets/icon-nav-bookmark.svg?react";
 import SeriesIcon from "../../assets/icon-nav-tv-series.svg?react";
 import styles from "./Menu.module.css";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 
 function Menu() {
+  const { pathname: path } = useLocation();
+
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
-        <NavLink to="/">
+        <NavLink to="/app" className={path === "/app/search" ? "active" : ""} end>
           <MenuItem Icon={HomeIcon} />
         </NavLink>
-        <NavLink to="/movies">
+        <NavLink to="movies">
           <MenuItem Icon={MoviesIcon} />
         </NavLink>
-        <NavLink to="/series">
+        <NavLink to="series">
           <MenuItem Icon={SeriesIcon} />
         </NavLink>
-        <NavLink to="/bookmarks">
+        <NavLink to="bookmarks">
           <MenuItem Icon={BookmarkIcon} />
         </NavLink>
       </ul>

@@ -8,7 +8,7 @@ import styles from "./NavBar.module.css";
 function NavBar() {
   return (
     <header className={styles.header}>
-      <Link to="/">
+      <Link to="/app">
         <Logo />
       </Link>
 

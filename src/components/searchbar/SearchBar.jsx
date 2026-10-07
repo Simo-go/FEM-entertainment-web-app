@@ -4,8 +4,7 @@ import { useLocation, useNavigate, useParams } from "react-router";
 
 function createPlaceholderText(path) {
   let placeholderText;
-  path = path.split("/")[1];
-  console.log(path);
+  path = path.split("/")[2] || path.split("/")[1];
 
   switch (path) {
     case "movies":
@@ -36,11 +35,10 @@ function SearchBar({ query, setQuery }) {
     const page = path.split("/")[1];
     console.log(page);
 
-    const scope = page === "" || page === "search" || page === "bookmarks" ? "media" : page;
+    const scope = page === "app" || page === "search" || page === "bookmarks" ? "media" : page;
 
     let searchPath;
-    if (path === "/") searchPath = `/search?q=${query}&scope=${scope}`;
-    else if (path.includes("search")) searchPath = path + `?q=${query}&scope=${scope}`;
+    if (path.includes("search")) searchPath = path + `?q=${query}&scope=${scope}`;
     else searchPath = path + `/search?q=${query}&scope=${scope}`;
 
     navigate(searchPath);
