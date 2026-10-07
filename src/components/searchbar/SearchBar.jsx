@@ -32,7 +32,7 @@ function SearchBar({ query, setQuery }) {
     e.preventDefault();
     if (query.length < 2) return;
 
-    const page = path.split("/")[1];
+    const page = path.split("/")[2] || path.split("/")[1];
     console.log(page);
 
     const scope = page === "app" || page === "search" || page === "bookmarks" ? "media" : page;

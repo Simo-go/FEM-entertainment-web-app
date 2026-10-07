@@ -1,7 +1,7 @@
 import styles from "./MediaList.module.css";
 import MediaCard from "../mediacard/MediaCard";
 import { useMedia } from "../../contexts/MediaProvider";
-import Loader from "../loader/loader";
+import Loader from "../loader/Loader";
 
 function MediaList({ media, className = "", cardType = "regular" }) {
   const {

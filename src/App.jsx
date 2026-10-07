@@ -15,7 +15,7 @@ import NoAuthPage from "./pages/noauthpage/NoAuthPage";
 import NotFoundPage from "./pages/notfoundpage/NotFoundPage";
 import LoginAndRegistrationLayout from "./pages/loginandregistrationlayout/LoginAndRegistrationLayout";
 
-const Home = lazy(() => import("./components/home/home"));
+const Home = lazy(() => import("./components/home/Home"));
 const Movies = lazy(() => import("./components/movies/Movies"));
 const TvSeries = lazy(() => import("./components/tvseries/TvSeries"));
 const Bookmarks = lazy(() => import("./components/bookmarks/Bookmarks"));

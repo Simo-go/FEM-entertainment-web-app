@@ -4,7 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router";
 import { useCallback, useRef } from "react";
 import InputError from "./InputError";
-import Form from "../form/form";
+import Form from "../form/Form";
 import FormHeader from "../form/FormHeader";
 import FormDetails from "../form/FormDetails";
 import FormInput from "../form/FormInput";
