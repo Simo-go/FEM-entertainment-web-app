@@ -1,4 +1,4 @@
-.login {
+.formContainer {
   max-width: 40rem;
   margin: 0 auto;
   margin-top: var(--space-600);
@@ -12,6 +12,6 @@
   height: 100vh;
 }
 
-.logoLogin {
+.logo {
   align-self: center;
 }

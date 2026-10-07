@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
 
 // import AppLayout from "./pages/AppLayout";
@@ -13,6 +13,7 @@ import AuthProvider from "./contexts/AuthContext";
 import ProtectedRoute from "./components/protectedroute/ProtectedRoute";
 import NoAuthPage from "./pages/noauthpage/NoAuthPage";
 import NotFoundPage from "./pages/notfoundpage/NotFoundPage";
+import LoginAndRegistrationLayout from "./pages/loginandregistrationlayout/LoginAndRegistrationLayout";
 
 const Home = lazy(() => import("./components/home/home"));
 const Movies = lazy(() => import("./components/movies/Movies"));
@@ -20,7 +21,7 @@ const TvSeries = lazy(() => import("./components/tvseries/TvSeries"));
 const Bookmarks = lazy(() => import("./components/bookmarks/Bookmarks"));
 const Search = lazy(() => import("./components/search/Search"));
 const AppLayout = lazy(() => import("./pages/applayout/AppLayout"));
-const Login = lazy(() => import("./pages/login/Login"));
+const LoginForm = lazy(() => import("./components/loginform/LoginForm"));
 
 function App() {
   return (
@@ -29,8 +30,18 @@ function App() {
         <BrowserRouter useTransitions={false}>
           <Suspense fallback={<PageLoader />}>
             <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/" element={<Login />} />
+              <Route path="/" element={<LoginAndRegistrationLayout />}>
+                <Route
+                  index
+                  element={
+                    <Navigate to="/login" replace>
+                      <LoginForm />
+                    </Navigate>
+                  }
+                />
+                <Route path="/login" element={<LoginForm />} />
+                {/* <Route path="/register" */}
+              </Route>
               <Route
                 path="/app"
                 element={
