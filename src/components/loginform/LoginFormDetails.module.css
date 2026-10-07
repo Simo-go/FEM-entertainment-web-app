@@ -13,6 +13,17 @@ input {
   width: 100%;
 }
 
+.inputContainer {
+  display: flex;
+  gap: var(--space-100);
+  padding: 0 var(--space-200) var(--space-200) 0;
+  border-bottom: 1px solid var(--clr-blue-500);
+}
+
+.inputContainer.hasError {
+  border-bottom: 1px solid var(--clr-red-500);
+}
+
 input {
   appearance: none;
   border: none;
@@ -20,19 +31,15 @@ input {
   outline: none;
 
   color: var(--clr-white);
-  border-bottom: 1px solid var(--clr-blue-500);
   caret-color: var(--clr-red-500);
 
-  padding: 0 var(--space-200) var(--space-200);
+  padding: 0 0 0 var(--space-200);
+  flex: 1;
 }
 
 input::placeholder {
   color: var(--clr-white);
   opacity: 0.5;
-}
-
-input:user-invalid {
-  border-bottom: 1px solid var(--clr-red-500);
 }
 
 .btnForm {

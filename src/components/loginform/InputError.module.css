@@ -1,0 +1,6 @@
+.inputError {
+  color: var(--clr-red-500);
+  font-size: 1.3rem;
+  line-height: 1.25;
+  font-weight: var(--fw-light);
+}
