@@ -2,3 +2,25 @@
   display: block;
   margin-bottom: var(--space-200);
 }
+
+.msgNoAccount {
+  text-align: center;
+}
+
+.msgNoAccount span {
+  margin-top: var(--space-50);
+}
+
+.msgNoAccount a {
+  color: var(--clr-red-500);
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+
+  padding-bottom: 0.1rem;
+
+  transition: var(--base-transition);
+}
+
+.msgNoAccount a:hover {
+  border-bottom: 1px solid var(--clr-red-500);
+}
