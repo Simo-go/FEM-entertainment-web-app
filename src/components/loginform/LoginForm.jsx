@@ -14,13 +14,13 @@ import { checkEmailErrors, checkPasswordErrors } from "../../utils/formValidatio
 function LoginForm() {
   const { email, handleUpdateEmail, emailRef, password, handleUpdatePassword, passwordRef, setEmailError, setPasswordError } =
     useLoginDetails();
-  const { verifyUser, loginError, isLoadingLogin } = useAuth();
+  const { verifyUser, formError, isLoadingForm } = useAuth();
   const navigate = useNavigate();
   const formRef = useRef();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (isLoadingLogin) return;
+    if (isLoadingForm) return;
 
     checkEmailErrors(emailRef.current, setEmailError);
     checkPasswordErrors(passwordRef.current, setPasswordError);
@@ -35,7 +35,7 @@ function LoginForm() {
   return (
     <Form onSubmit={handleSubmit} noValidate={true} ref={formRef}>
       <FormHeader>Login</FormHeader>
-      {loginError && <InputError className={styles.loginError}>{loginError}</InputError>}
+      {formError && <InputError className={styles.loginError}>{formError}</InputError>}
       <FormDetails>
         <FormInput
           error={email.error}

@@ -22,3 +22,8 @@
 .haveAccMsg a:hover {
   border-bottom: 1px solid var(--clr-red-500);
 }
+
+.formError {
+  margin-bottom: var(--space-200);
+  display: block;
+}

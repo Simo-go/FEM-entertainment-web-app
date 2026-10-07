@@ -7,10 +7,13 @@ import FormDetails from "../form/FormDetails";
 import FormHeader from "../form/FormHeader";
 import FormInput from "../form/FormInput";
 import styles from "./RegistrationForm.module.css";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { checkConfirmPasswordError, checkEmailErrors, checkPasswordErrors } from "../../utils/formValidation";
+import { useAuth } from "../../contexts/AuthContext";
+import InputError from "../loginform/InputError";
 
 function RegistrationForm() {
+  const { createUser, formError, isLoadingForm } = useAuth();
   const {
     email,
     password,
@@ -25,19 +28,30 @@ function RegistrationForm() {
     setPasswordError,
     setConfirmPasswordError,
   } = useRegisterDetails();
+  const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  const formRef = useRef();
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log("clicked");
+    if (isLoadingForm) return;
 
     checkEmailErrors(emailRef.current, setEmailError);
     checkPasswordErrors(passwordRef.current, setPasswordError);
     checkConfirmPasswordError(confirmPasswordRef.current, setConfirmPasswordError, !passwordRef.current.checkValidity());
+
+    if (!formRef.current.checkValidity()) {
+      return;
+    }
+
+    const success = await createUser(email.value, password.value);
+    if (success) navigate("/login");
   }
 
   return (
-    <Form onSubmit={handleSubmit} noValidate>
+    <Form onSubmit={handleSubmit} ref={formRef} noValidate>
       <FormHeader>Sign Up</FormHeader>
+      {formError && <InputError className={styles.formError}>{formError}</InputError>}
       <FormDetails>
         <FormInput
           error={email.error}

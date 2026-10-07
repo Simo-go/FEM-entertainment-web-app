@@ -490,6 +490,21 @@
       "id": "123",
       "email": "simeon@gmail.com",
       "password": "@SimeonTest2002"
+    },
+    {
+      "id": "agQUucwcdlo",
+      "email": "simeon2@gmail.com",
+      "password": "@Testing123"
+    },
+    {
+      "id": "p5KZiiG11Yo",
+      "email": "simeon2002@gmail.com",
+      "password": "@Testing123"
+    },
+    {
+      "id": "Sc1obU3cEpQ",
+      "email": "simeon20022@gmail.com",
+      "password": "@Testing123"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
