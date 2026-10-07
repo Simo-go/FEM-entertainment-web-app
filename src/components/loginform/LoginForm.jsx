@@ -9,9 +9,10 @@ import FormHeader from "../form/FormHeader";
 import FormDetails from "../form/FormDetails";
 import FormInput from "../form/FormInput";
 import FormButton from "../form/FormButton";
+import { checkEmailErrors, checkPasswordErrors } from "../../utils/formValidation";
 
 function LoginForm() {
-  const { email, handleUpdateEmail, emailRef, checkEmailErrors, password, handleUpdatePassword, checkPasswordErrors, passwordRef } =
+  const { email, handleUpdateEmail, emailRef, password, handleUpdatePassword, passwordRef, setEmailError, setPasswordError } =
     useLoginDetails();
   const { verifyUser, loginError, isLoadingLogin } = useAuth();
   const navigate = useNavigate();
@@ -21,15 +22,12 @@ function LoginForm() {
     e.preventDefault();
     if (isLoadingLogin) return;
 
-    checkEmailErrors(emailRef.current);
-    checkPasswordErrors(passwordRef.current);
-
-    console.log(formRef);
+    checkEmailErrors(emailRef.current, setEmailError);
+    checkPasswordErrors(passwordRef.current, setPasswordError);
 
     if (!formRef.current.checkValidity()) return;
 
     const isVerified = await verifyUser(email.value, password.value);
-    console.log(isVerified);
 
     if (isVerified) navigate("/app", { replace: true });
   }
