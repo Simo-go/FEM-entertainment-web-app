@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { checkEmailErrors, checkPasswordErrors } from "../utils/formValidation";
+import { useLocation, useSearchParams } from "react-router";
 
 export function useLoginDetails() {
   const [email, setEmail] = useState({
@@ -12,6 +13,8 @@ export function useLoginDetails() {
   });
   const emailRef = useRef();
   const passwordRef = useRef();
+  const [searchParams] = useSearchParams();
+  const paramEmail = searchParams.get("email");
 
   function handleUpdatePassword(newPassw) {
     setPassword(passw => ({ ...passw, value: newPassw }));
@@ -30,6 +33,14 @@ export function useLoginDetails() {
   function setPasswordError(errorMsg) {
     setPassword(passw => ({ ...passw, error: errorMsg }));
   }
+
+  useEffect(
+    function () {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setEmail(email => ({ ...email, value: paramEmail || "" }));
+    },
+    [paramEmail],
+  );
 
   return {
     email,
