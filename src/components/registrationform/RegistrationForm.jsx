@@ -45,7 +45,10 @@ function RegistrationForm() {
     }
 
     const success = await createUser(email.value, password.value);
-    if (success) navigate("/login");
+    if (!success) return;
+
+    const searchParams = new URLSearchParams({ email: email.value });
+    navigate(`/login?${searchParams}`, { replace: true });
   }
 
   return (

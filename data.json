@@ -505,6 +505,21 @@
       "id": "Sc1obU3cEpQ",
       "email": "simeon20022@gmail.com",
       "password": "@Testing123"
+    },
+    {
+      "id": "ttXsXrMMD7U",
+      "email": "simeonss@gmail.com",
+      "password": "@Testing123"
+    },
+    {
+      "id": "GN09uNzl2GU",
+      "email": "simeonlast@gmail.com",
+      "password": "@Testing123"
+    },
+    {
+      "id": "9V4YoaZmDlo",
+      "email": "simeontest@gmail.com",
+      "password": "@Testing123"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

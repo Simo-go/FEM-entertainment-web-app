@@ -21,7 +21,7 @@ export function useRegisterDetails() {
 
   function handleUpdateConfirmPassword(newValue) {
     setConfirmPassword(password => ({ ...password, value: newValue }));
-    if (confirmPassword.error) checkConfirmPasswordError(confirmPassword.current, setConfirmPassword);
+    if (confirmPassword.error) checkConfirmPasswordError(confirmPasswordRef.current, setConfirmPasswordError);
   }
 
   function setEmailError(msg) {
