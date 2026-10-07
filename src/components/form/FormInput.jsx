@@ -1,9 +1,16 @@
+import clsx from "clsx";
 import styles from "./FormInput.module.css";
+import InputError from "../loginform/InputError";
 
-function FormInput() {
-  return <div></div>;
+function FormInput({ error, ...props }) {
+  return (
+    <div>
+      <label htmlFor={props.id} className={clsx(styles.inputContainer, { [styles.hasError]: error })}>
+        <input {...props} />
+        {error && <InputError>{error}</InputError>}
+      </label>
+    </div>
+  );
 }
 
-import styles from "./FormInput.module.css";
-
-export default FormInput();
+export default FormInput;

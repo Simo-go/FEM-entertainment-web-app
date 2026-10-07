@@ -4,41 +4,35 @@ import styles from "./LoginFormDetails.module.css";
 import InputError from "./InputError";
 import { useAuth } from "../../contexts/AuthContext";
 import LoginLoader from "./LoginLoader";
+import FormInput from "../form/FormInput";
+import clsx from "clsx";
 
 function LoginFormDetails({ email, onUpdateEmail, password, onUpdatePassword, emailRef, passwordRef }) {
   const { isLoadingLogin } = useAuth();
 
   return (
     <div className={styles.formDetails}>
-      <div>
-        <label htmlFor="email" className={`${styles.inputContainer} ${email.error ? styles.hasError : ""}`}>
-          <input
-            id="email"
-            type="email"
-            placeholder="Email address"
-            value={email.value}
-            ref={emailRef}
-            onChange={e => onUpdateEmail(e.target.value)}
-            required
-          />
-          {email.error && <InputError>{email.error}</InputError>}
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password" className={`${styles.inputContainer} ${password.error ? styles.hasError : ""}`}>
-          <input
-            id="password"
-            type="password"
-            placeholder="Password"
-            value={password.value}
-            onChange={e => onUpdatePassword(e.target.value)}
-            ref={passwordRef}
-            required
-            minLength={6}
-          />
-          {password.error && <InputError>{password.error}</InputError>}
-        </label>
-      </div>
+      <FormInput
+        error={email.error}
+        id="email"
+        type="email"
+        placeholder="Email address"
+        value={email.value}
+        ref={emailRef}
+        onChange={e => onUpdateEmail(e.target.value)}
+        required
+      />
+      <FormInput
+        error={password.error}
+        id="password"
+        type="password"
+        placeholder="Password"
+        value={password.value}
+        onChange={e => onUpdatePassword(e.target.value)}
+        ref={passwordRef}
+        required
+        minLength={6}
+      />
       <div>
         <Button className={styles.btnForm}>{isLoadingLogin ? <LoginLoader className={styles.loader} /> : "Login to your account"}</Button>
       </div>
