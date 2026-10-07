@@ -28,7 +28,7 @@ function reducer(state, action) {
     case "error":
       return { ...state, isLoading: false, error: action.payload };
     case "bookmarkError":
-      return { ...state, isLoadingBookmark: false, error: action.payload };
+      return { ...state, isLoadingBookmark: false, bookmarkError: action.payload };
     default:
       throw new Error("Unknown action for media");
   }
