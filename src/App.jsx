@@ -12,6 +12,7 @@ import PageLoader from "./components/loader/PageLoader";
 import AuthProvider from "./contexts/AuthContext";
 import ProtectedRoute from "./components/protectedroute/ProtectedRoute";
 import NoAuthPage from "./pages/noauthpage/NoAuthPage";
+import NotFoundPage from "./pages/notfoundpage/NotFoundPage";
 
 const Home = lazy(() => import("./components/home/home"));
 const Movies = lazy(() => import("./components/movies/Movies"));
@@ -47,6 +48,7 @@ function App() {
                 <Route path="search" element={<Search />} />
               </Route>
               <Route path="/no-access" element={<NoAuthPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
         </BrowserRouter>

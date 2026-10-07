@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  padding: 0 var(--space-200);
+}
+
+.desc {
+  max-width: 40rem;
+  margin-bottom: var(--space-200);
+}
+
+.link {
+  text-decoration: none;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: var(--fw-light);
+  color: var(--clr-white);
+  background-color: var(--clr-red-500);
+  border-radius: var(--radius-8);
+
+  display: block;
+  padding: var(--space-140) var(--space-300);
+}
