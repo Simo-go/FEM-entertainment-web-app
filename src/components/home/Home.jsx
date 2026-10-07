@@ -1,6 +1,7 @@
 import styles from "./Home.module.css";
 import TrendingMoviesBox from "../trendingmovies/TrendingMoviesBox";
 import RecommendedMediaBox from "../recommendedMediaBox/RecommendedMediaBox";
+import { memo } from "react";
 
 function Home() {
   return (
@@ -11,4 +12,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default memo(Home);

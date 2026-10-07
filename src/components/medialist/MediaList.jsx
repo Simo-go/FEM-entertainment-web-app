@@ -1,5 +1,5 @@
 import styles from "./MediaList.module.css";
-import Movie from "../movie/MediaCard";
+import MediaCard from "../mediacard/MediaCard";
 import { useMedia } from "../../contexts/MediaProvider";
 import Loader from "../loader/loader";
 
@@ -10,7 +10,7 @@ function MediaList({ media, className = "", cardType = "regular" }) {
 
   return (
     <ul className={`list ${styles.mediaList} ${className ?? ""} ${isLoading ? styles.isLoading : ""}`}>
-      {isLoading ? <Loader /> : media.map(media => <Movie key={media.id} media={media} type={cardType} />)}
+      {isLoading ? <Loader /> : media.map(media => <MediaCard key={media.id} media={media} type={cardType} />)}
     </ul>
   );
 }

@@ -2,6 +2,7 @@ import styles from "./MediaCard.module.css";
 import MediaPoster from "./MediaPoster";
 import MediaDetails from "./MediaDetails";
 import BookmarkButton from "./BookmarkButton";
+import { memo } from "react";
 
 function MediaCard({ type = "regular", media }) {
   return (
@@ -15,4 +16,4 @@ function MediaCard({ type = "regular", media }) {
   );
 }
 
-export default MediaCard;
+export default memo(MediaCard);
