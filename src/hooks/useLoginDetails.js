@@ -31,8 +31,6 @@ export function useLoginDetails() {
   }
 
   function checkEmailErrors(emailInput) {
-    console.log(emailInput.validity.typeMismatch && !/\.[a-zA-Z]+$/.test(emailInput.value));
-
     if (emailInput.validity.valueMissing) return setEmailError("Can't be empty");
     if (emailInput.validity.typeMismatch || !/\.[a-zA-Z]+$/.test(emailInput.value)) return setEmailError("Incorrect format");
     setEmailError("");

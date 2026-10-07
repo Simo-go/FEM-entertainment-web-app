@@ -9,6 +9,7 @@ import { lazy, Suspense } from "react";
 // import Search from "./components/search/Search";
 import { MediaProvider } from "./contexts/MediaProvider";
 import PageLoader from "./components/loader/PageLoader";
+import AuthProvider from "./contexts/AuthContext";
 
 const Home = lazy(() => import("./components/home/home"));
 const Movies = lazy(() => import("./components/movies/Movies"));
@@ -20,24 +21,26 @@ const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   return (
-    <MediaProvider>
-      <BrowserRouter useTransitions={false}>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<AppLayout />}>
-              <Route index element={<Home />} />
-              <Route path="home" element={<Home />} />
-              <Route path="movies" element={<Movies />} />
-              <Route path="series" element={<TvSeries />} />
-              <Route path="bookmarks" element={<Bookmarks />} />
-              <Route path=":page/search" element={<Search />} />
-              <Route path="/search" element={<Search />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </MediaProvider>
+    <AuthProvider>
+      <MediaProvider>
+        <BrowserRouter useTransitions={false}>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<AppLayout />}>
+                <Route index element={<Home />} />
+                <Route path="home" element={<Home />} />
+                <Route path="movies" element={<Movies />} />
+                <Route path="series" element={<TvSeries />} />
+                <Route path="bookmarks" element={<Bookmarks />} />
+                <Route path=":page/search" element={<Search />} />
+                <Route path="/search" element={<Search />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </MediaProvider>
+    </AuthProvider>
   );
 }
 

@@ -2,8 +2,12 @@ import { Link } from "react-router";
 import Button from "../button/Button";
 import styles from "./LoginFormDetails.module.css";
 import InputError from "./InputError";
+import { useAuth } from "../../contexts/AuthContext";
+import LoginLoader from "./LoginLoader";
 
 function LoginFormDetails({ email, onUpdateEmail, password, onUpdatePassword, emailRef, passwordRef }) {
+  const { isLoadingLogin } = useAuth();
+
   return (
     <div className={styles.formDetails}>
       <div>
@@ -17,7 +21,7 @@ function LoginFormDetails({ email, onUpdateEmail, password, onUpdatePassword, em
             onChange={e => onUpdateEmail(e.target.value)}
             required
           />
-          {email.error && <InputError msg={email.error} />}
+          {email.error && <InputError>{email.error}</InputError>}
         </label>
       </div>
       <div>
@@ -32,11 +36,11 @@ function LoginFormDetails({ email, onUpdateEmail, password, onUpdatePassword, em
             required
             minLength={6}
           />
-          {password.error && <InputError msg={password.error} />}
+          {password.error && <InputError>{password.error}</InputError>}
         </label>
       </div>
       <div>
-        <Button className={styles.btnForm}>Login to your account</Button>
+        <Button className={styles.btnForm}>{isLoadingLogin ? <LoginLoader className={styles.loader} /> : "Login to your account"}</Button>
       </div>
       <p className={styles.msgNoAccount}>
         <span>Don't have an account?</span> <Link>Sign Up</Link>
