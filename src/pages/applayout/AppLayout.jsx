@@ -1,12 +1,12 @@
 import { Outlet } from "react-router";
 
-import Main from "../components/main/Main";
-import NavBar from "../components/navbar/NavBar";
-import SearchBar from "../components/searchbar/SearchBar";
+import Main from "../../components/main/Main";
+import NavBar from "../../components/navbar/NavBar";
+import SearchBar from "../../components/searchbar/SearchBar";
 
 import styles from "./AppLayout.module.css";
 import { Suspense, useState } from "react";
-import PageLoader from "../components/loader/PageLoader";
+import PageLoader from "../../components/loader/PageLoader";
 
 function AppLayout() {
   const [query, setQuery] = useState("");

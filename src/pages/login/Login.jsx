@@ -1,5 +1,5 @@
-import Logo from "../components/logo/Logo";
-import LoginForm from "../components/loginform/LoginForm";
+import Logo from "../../components/logo/Logo";
+import LoginForm from "../../components/loginform/LoginForm";
 import styles from "./Login.module.css";
 
 function Login() {

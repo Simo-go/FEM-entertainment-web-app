@@ -31,7 +31,7 @@ function LoginForm() {
     const isVerified = await verifyUser(email.value, password.value);
     console.log(isVerified);
 
-    if (isVerified) navigate("/", { replace: true });
+    if (isVerified) navigate("/app", { replace: true });
   }
 
   return (
