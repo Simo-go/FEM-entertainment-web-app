@@ -60,7 +60,7 @@ function LoginForm() {
         />
         <FormButton>Login to your account</FormButton>
         <p className={styles.msgNoAccount}>
-          <span>Don't have an account?</span> <Link>Sign Up</Link>
+          <span>Don't have an account?</span> <Link to="/register">Sign Up</Link>
         </p>
       </FormDetails>
     </Form>
