@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import styles from "./form.module.css";
+import { memo } from "react";
 
 function Form({ children, className, ...props }) {
   return (
@@ -9,4 +10,4 @@ function Form({ children, className, ...props }) {
   );
 }
 
-export default Form;
+export default memo(Form);

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import Button from "../button/Button";
 import ButtonLoader from "./ButtonLoader";
@@ -13,4 +14,4 @@ function FormButton({ children }) {
   );
 }
 
-export default FormButton;
+export default memo(FormButton);

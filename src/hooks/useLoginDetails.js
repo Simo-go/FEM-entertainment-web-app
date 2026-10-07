@@ -16,15 +16,21 @@ export function useLoginDetails() {
   const [searchParams] = useSearchParams();
   const paramEmail = searchParams.get("email");
 
-  function handleUpdatePassword(newPassw) {
-    setPassword(passw => ({ ...passw, value: newPassw }));
-    if (password.error) checkPasswordErrors(passwordRef.current, setPasswordError);
-  }
+  const handleUpdatePassword = useCallback(
+    function handleUpdatePassword(newPassw) {
+      setPassword(passw => ({ ...passw, value: newPassw }));
+      if (password.error) checkPasswordErrors(passwordRef.current, setPasswordError);
+    },
+    [password],
+  );
 
-  function handleUpdateEmail(newEmail) {
-    setEmail(email => ({ ...email, value: newEmail }));
-    if (email.error) checkEmailErrors(emailRef.current, setEmailError);
-  }
+  const handleUpdateEmail = useCallback(
+    function handleUpdateEmail(newEmail) {
+      setEmail(email => ({ ...email, value: newEmail }));
+      if (email.error) checkEmailErrors(emailRef.current, setEmailError);
+    },
+    [email],
+  );
 
   function setEmailError(errorMsg) {
     setEmail(email => ({ ...email, error: errorMsg }));

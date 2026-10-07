@@ -2,7 +2,7 @@ import styles from "./LoginForm.module.css";
 import { useLoginDetails } from "../../hooks/useLoginDetails";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router";
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 import InputError from "./InputError";
 import Form from "../form/form";
 import FormHeader from "../form/FormHeader";
@@ -44,7 +44,7 @@ function LoginForm() {
           placeholder="Email address"
           value={email.value}
           ref={emailRef}
-          onChange={e => handleUpdateEmail(e.target.value)}
+          onChange={useCallback(e => handleUpdateEmail(e.target.value), [handleUpdateEmail])}
           required
         />
         <FormInput
@@ -53,7 +53,7 @@ function LoginForm() {
           type="password"
           placeholder="Password"
           value={password.value}
-          onChange={e => handleUpdatePassword(e.target.value)}
+          onChange={useCallback(e => handleUpdatePassword(e.target.value), [handleUpdatePassword])}
           ref={passwordRef}
           required
           minLength={6}

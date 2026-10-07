@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./FormHeader.module.css";
 
 function FormHeader({ children }) {
@@ -8,4 +9,4 @@ function FormHeader({ children }) {
   );
 }
 
-export default FormHeader;
+export default memo(FormHeader);

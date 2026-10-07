@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import styles from "./FormInput.module.css";
 import InputError from "../loginform/InputError";
+import { memo } from "react";
 
 function FormInput({ error, ...props }) {
   return (
@@ -13,4 +14,4 @@ function FormInput({ error, ...props }) {
   );
 }
 
-export default FormInput;
+export default memo(FormInput);

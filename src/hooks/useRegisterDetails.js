@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { checkConfirmPasswordError, checkEmailErrors, checkPasswordErrors } from "../utils/formValidation";
 
 export function useRegisterDetails() {
@@ -9,20 +9,29 @@ export function useRegisterDetails() {
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
 
-  function handleUpdateEmail(newValue) {
-    setEmail(email => ({ ...email, value: newValue }));
-    if (email.error) checkEmailErrors(emailRef.current, setEmailError);
-  }
+  const handleUpdateEmail = useCallback(
+    function handleUpdateEmail(newValue) {
+      setEmail(email => ({ ...email, value: newValue }));
+      if (email.error) checkEmailErrors(emailRef.current, setEmailError);
+    },
+    [email],
+  );
 
-  function handleUpdatePassword(newValue) {
-    setPassword(password => ({ ...password, value: newValue }));
-    if (password.error) checkPasswordErrors(passwordRef.current, setPasswordError);
-  }
+  const handleUpdatePassword = useCallback(
+    function handleUpdatePassword(newValue) {
+      setPassword(password => ({ ...password, value: newValue }));
+      if (password.error) checkPasswordErrors(passwordRef.current, setPasswordError);
+    },
+    [password],
+  );
 
-  function handleUpdateConfirmPassword(newValue) {
-    setConfirmPassword(password => ({ ...password, value: newValue }));
-    if (confirmPassword.error) checkConfirmPasswordError(confirmPasswordRef.current, setConfirmPasswordError);
-  }
+  const handleUpdateConfirmPassword = useCallback(
+    function handleUpdateConfirmPassword(newValue) {
+      setConfirmPassword(password => ({ ...password, value: newValue }));
+      if (confirmPassword.error) checkConfirmPasswordError(confirmPasswordRef.current, setConfirmPasswordError);
+    },
+    [confirmPassword],
+  );
 
   function setEmailError(msg) {
     setEmail(email => ({ ...email, error: msg }));

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useRegisterDetails } from "../../hooks/useRegisterDetails";
 
 import Form from "../form/form";
@@ -63,7 +63,7 @@ function RegistrationForm() {
           placeholder="Email address"
           value={email.value}
           ref={emailRef}
-          onChange={e => handleUpdateEmail(e.target.value)}
+          onChange={useCallback(e => handleUpdateEmail(e.target.value), [handleUpdateEmail])}
           required
         />
         <FormInput
@@ -73,7 +73,7 @@ function RegistrationForm() {
           placeholder="Password"
           value={password.value}
           ref={passwordRef}
-          onChange={e => handleUpdatePassword(e.target.value)}
+          onChange={useCallback(e => handleUpdatePassword(e.target.value), [handleUpdatePassword])}
           minLength={6}
           required
         />
@@ -84,7 +84,7 @@ function RegistrationForm() {
           placeholder="Repeat Password"
           value={confirmPassword.value}
           ref={confirmPasswordRef}
-          onChange={e => handleUpdateConfirmPassword(e.target.value)}
+          onChange={useCallback(e => handleUpdateConfirmPassword(e.target.value), [handleUpdateConfirmPassword])}
           required
           pattern={password.value}
         />
